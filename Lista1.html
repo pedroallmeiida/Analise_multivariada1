@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pedro Almeida">
+
+<title>Lista 1 - Medidas estatísticas e distâncias multivariadas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="Lista1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lista1_files/libs/quarto-html/quarto.js"></script>
+<script src="Lista1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lista1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lista1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lista1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lista1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lista1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lista1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lista1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lista 1 - Medidas estatísticas e distâncias multivariadas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pedro Almeida </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="exercícios" class="level2">
+<h2 class="anchored" data-anchor-id="exercícios">Exercícios</h2>
+<ol type="1">
+<li>Considere os sete pares de dados <span class="math inline">\(\left(x_1, x_2\right)\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+\begin{array}{l|ccccccc}
+x_1 &amp; 3 &amp; 4 &amp; 2 &amp; 6 &amp; 8 &amp; 2 &amp; 5 \\
+\hline
+x_2 &amp; 5 &amp; 5.5 &amp; 4 &amp; 7 &amp; 10 &amp; 5 &amp; 7.5
+\end{array}
+\]</span> Calcule as seguintes medidas:</p>
+<p>[a] Médias amostrais <span class="math inline">\(\bar{x}_1\)</span> e <span class="math inline">\(\bar{x}_2\)</span>,</p>
+<p>[b] Variâncias amostrais <span class="math inline">\(s_{11}\)</span> e <span class="math inline">\(s_{22}\)</span>,</p>
+<p>[c] Covariância amostral <span class="math inline">\(s_{12}\)</span>.</p>
+<p>[d] Calcule a distância euclidiana entre os vetores <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span></p>
+<p>[e] Calcule a distância “estatística” entre os vetores <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span></p>
+<p>[f] Calcule a distância de Mahalanobis entre os vetores <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span></p>
+<!-- -->
+<ol start="2" type="1">
+<li>Um anúncio de jornal lista os seguintes preços de carros usados para um compacto estrangeiro com tempo de fabricação <span class="math inline">\(x_1\)</span> (medida em anos) e preço de venda <span class="math inline">\(x_2\)</span> medido em milhares de dólares:</li>
+</ol>
+<p><span class="math display">\[
+\begin{array}{r|rrrrrrrrrr}
+x_1 &amp; 1 &amp; 2 &amp; 3 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 8 &amp; 9 &amp; 11 \\
+\hline x_2 &amp; 18,95 &amp; 19,00 &amp; 17,95 &amp; 15,54 &amp; 14,00 &amp; 12,95 &amp; 8,94 &amp; 7,49 &amp; 6,00 &amp; 3,99
+\end{array}
+\]</span></p>
+<p>[a] Construa um gráfico de dispersão dos dados.</p>
+<p>[b] Inferir o sinal da amostra de covariância <span class="math inline">\(s_{12}\)</span> do gráfico de dispersão.</p>
+<p>[c] Calcule as médias amostrais <span class="math inline">\(\bar{x}_1\)</span> e <span class="math inline">\(\bar{x}_2\)</span> e as variâncias amostrais <span class="math inline">\(s_{11}\)</span> e <span class="math inline">\(s_{22}\)</span>.</p>
+<p>[d] Calcule a covariância de amostra <span class="math inline">\(s_{12}\)</span> e o coeficiente de correlação de amostra <span class="math inline">\(r_{12}\)</span>. Interprete essas quantidades.</p>
+<p>[e] Obtenha a amostra de matriz média <span class="math inline">\(\overline{\mathbf{x}}\)</span>, a amostra de matriz de variância-covariância <span class="math inline">\(\mathbf{S}_n\)</span> e a amostra de matriz de correlação <span class="math inline">\(\mathbf{R}\)</span>.</p>
+<ol start="3" type="1">
+<li>A seguir estão cinco medições nas variáveis <span class="math inline">\(x_1, x_2\)</span> e <span class="math inline">\(x_3\)</span>:</li>
+</ol>
+<p><span class="math display">\[
+\begin{array}{r|rrrrr}
+x_1 &amp; 9 &amp; 2 &amp; 6 &amp; 5 &amp; 8 \\ \hline
+x_2 &amp; 12 &amp; 8 &amp; 6 &amp; 4 &amp; 10 \\ \hline
+x_3 &amp; 3 &amp; 4 &amp; 0 &amp; 2 &amp; 1
+\end{array}
+\]</span></p>
+<p>[a] Obtenha o vetor de médias <span class="math inline">\(\overline{\mathbf{x}}\)</span>, a matriz de covariância <span class="math inline">\(\mathbf{S}_n\)</span> e a matriz de correlação <span class="math inline">\(\mathbf{R}\)</span>.</p>
+<p>[b] Calcule a distância de Mahalanobis entre os vetores (<span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_2\)</span>) e (<span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_3\)</span>). Interprete os resultados.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
