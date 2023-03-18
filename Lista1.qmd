@@ -1,0 +1,61 @@
+---
+title: "Lista 1 - Medidas estatísticas e distâncias multivariadas"
+author: "Pedro Almeida"
+format: html
+editor: visual
+---
+
+## Exercícios
+
+1.  Considere os sete pares de dados $\left(x_1, x_2\right)$:
+
+$$
+\begin{array}{l|ccccccc}
+x_1 & 3 & 4 & 2 & 6 & 8 & 2 & 5 \\
+\hline 
+x_2 & 5 & 5.5 & 4 & 7 & 10 & 5 & 7.5
+\end{array}
+$$ Calcule as seguintes medidas:
+
+\[a\] Médias amostrais $\bar{x}_1$ e $\bar{x}_2$,
+
+\[b\] Variâncias amostrais $s_{11}$ e $s_{22}$,
+
+\[c\] Covariância amostral $s_{12}$.
+
+\[d\] Calcule a distância euclidiana entre os vetores $x_1$ e $x_2$
+
+\[e\] Calcule a distância "estatística" entre os vetores $x_1$ e $x_2$
+
+<!-- -->
+
+2.  Um anúncio de jornal lista os seguintes preços de carros usados para um compacto estrangeiro com tempo de fabricação $x_1$ (medida em anos) e preço de venda $x_2$ medido em milhares de dólares:
+
+$$
+\begin{array}{r|rrrrrrrrrr}
+x_1 & 1 & 2 & 3 & 3 & 4 & 5 & 6 & 8 & 9 & 11 \\
+\hline x_2 & 18,95 & 19,00 & 17,95 & 15,54 & 14,00 & 12,95 & 8,94 & 7,49 & 6,00 & 3,99
+\end{array}
+$$
+
+\[a\] Construa um gráfico de dispersão dos dados.
+
+\[b\] Inferir o sinal da amostra de covariância $s_{12}$ do gráfico de dispersão.
+
+\[c\] Calcule as médias amostrais $\bar{x}_1$ e $\bar{x}_2$ e as variâncias amostrais $s_{11}$ e $s_{22}$.
+
+\[d\] Calcule a covariância de amostra $s_{12}$ e o coeficiente de correlação de amostra $r_{12}$. Interprete essas quantidades.
+
+\[e\] Obtenha a amostra de matriz média $\overline{\mathbf{x}}$, a amostra de matriz de variância-covariância $\mathbf{S}_n$ e a amostra de matriz de correlação $\mathbf{R}$.
+
+3.  A seguir estão cinco medições nas variáveis $x_1, x_2$ e $x_3$:
+
+$$
+\begin{array}{r|rrrrr}
+x_1 & 9 & 2 & 6 & 5 & 8 \\ \hline 
+x_2 & 12 & 8 & 6 & 4 & 10 \\ \hline
+x_3 & 3 & 4 & 0 & 2 & 1
+\end{array}
+$$
+
+\[a\] Obtenha o vetor de médias $\overline{\mathbf{x}}$, a matriz de covariância $\mathbf{S}_n$ e a matriz de correlação $\mathbf{R}$.

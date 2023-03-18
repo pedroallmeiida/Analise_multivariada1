@@ -1,0 +1,134 @@
+---
+title: "Distância Euclidiana e estatística"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+---
+
+# Distância
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+-   A maioria das técnicas multivariadas se baseia no simples conceito de distância.
+
+-   A distância mais simples e conhecida é denomida de distância euclidiana.
+
+-   Se considerarmos o ponto $p = \left(x_1, x_2 \right)$ no plano, a distância linear, $d(O, P)$, de $P$ para a origem $O = (0, 0)$ é, de acordo com o teorema de Pitágoras:
+
+$$
+d(O, P)=\sqrt{x_1^2+x_2^2}
+$$
+
+Em geral, se o ponto $P$ tiver $p$ coordenados para que $P = \left (x_1, x_2, \ldots, x_p \right)$, a distância linear de $p$ para a origem $O = (0,0, \ldots, 0)$ é
+
+$$
+d(O, P)=\sqrt{x_1^2+x_2^2+ \ldots + x^2_p}
+$$
+:::
+
+## Ilustração da distância Euclidiana
+
+![Distância Euclidiana](images/distancia_euclidiana.png)
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+## Distância Euclidiana entre dois pontos arbitrários
+
+A distância Euclidiana entre dois pontos arbitrários $P$ e $Q$ com coordenadas $P = \left (x_1, x_2, \ldots, x_p \right)$ e $Q = \left (y_1, y_2, \ldots, y_p \right)$ é dado por
+
+$$
+d (P, Q) = \sqrt {\left (x_1-y_1 \right)^2+\left (x_2-y_2 \right)^2+ \cdots+\left (x_p-y_p \right)^2}
+$$
+:::
+
+## Desvantagens da distância Euclidiana
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+-   A distância euclidiana, é insatisfatória para a maioria dos propósitos estatísticos. Isso ocorre porque cada coordenada contribui igualmente para o cálculo da distância euclidiana.
+
+-   Quando as coordenadas representam medições sujeitas a flutuações aleatórias de magnitudes diferentes, as contribuições serão mais fortes para as variáveis com maiores magnitudes;
+
+-   Isso sugere uma medida diferente de distância.
+:::
+
+## Distância "Estatística"
+
+-   Nosso objetivo agora é desenvolver uma distância "estatística" que explique diferenças na variação e, no devido tempo, a presença de correlação.
+
+-   Como nossa escolha dependerá das variâncias e covariâncias da amostra, neste momento usamos o termo distância estatística para distingui-la da distância euclidiana comum.
+
+-   É uma distância estatística que é fundamental para a análise multivariada.
+
+## Gráfico de dispersão
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+Para ilustrar, suponha que tenhamos $N$ pares de medições em duas variáveis, cada uma com média zero. Sejam as variáveis $X_1$ e $X_2$ e suponha que as medidas $X_1$ variem independentemente das medições $X_2$. Além disso, suponha que a variabilidade nas medições $X_1$ seja maior que a variabilidade nas medidas $X_2$. Esse caso pode ser ilustrado na Figura abaixo:
+
+![Exemplo dispersão](images/exemplo_dispersao.png)
+:::
+
+## Distância padronizada
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+-   Como vimos anteriormente, as coordenadas podem ter variabilidades diferentes, dessa forma é interessante dividir cada coordenada pelo desvio padrão da amostra
+
+-   Após a divisão pelos desvios padrão, temos as coordenadas "padronizadas" $x_1^*= x_1 / \sqrt {s_{11}}$ e $x_2^*= x_2 / \sqrt{s_{22}}$.
+
+-   As coordenadas padronizadas estão agora em igualdade entre si.
+
+-   Depois de levar em consideração as diferenças de variabilidade, determinamos a distância usando a fórmula euclidiana padrão.
+:::
+
+## Definição: Distância Padronizada
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+Uma distância estatística do ponto $P = \left(x_1, x_2 \right)$ da origem $O = (0,0)$ pode ser calculado a partir de suas coordenadas padronizadas $x_1^*= x_1 / \sqrt{ s_{11}}$ e $x_2^*= x_2 / \sqrt{s_{22}}$ como
+
+$$
+\begin{aligned}
+d(O, P) & =\sqrt{\left(x_1^*\right)^2+\left(x_2^*\right)^2} \\
+& =\sqrt{\left(\frac{x_1}{\sqrt{s_{11}}}\right)^2+\left(\frac{x_2}{\sqrt{s_{22}}}\right)^2}=\sqrt{\frac{x_1^2}{s_{11}}+\frac{x_2^2}{s_{22}}}
+\end{aligned}
+$$
+:::
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Distância padronizada entre dois pontos arbitrários
+
+A distância padronizada entre dois pontos arbitrários $P$ e $Q$ com coordenadas $P = \left (x_1, x_2, \ldots, x_p \right)$ e $Q = \left (y_1, y_2, \ldots, y_p \right)$ é dado por
+
+$$
+d (P, Q) = \sqrt {\left (x^*_1-y^*_1 \right)^2+\left (x^*_2-y^*_2 \right)^2+ \cdots+\left (x^*_p-y^*_p \right)^2}
+$$
+:::
+
+
+## Propriedades de distância
+
+Sendo $P$ e $Q$ dois pontos arbitrários e $R$ um ponto intermediário entre $P$ e $Q$, são válidas as seguintes propriedades:
+
+$$
+\begin{aligned}
+1.\,\, & d(P, Q)=d(Q, P) \\
+2. \,\,& d(P, Q)>0 \text { if } P \neq Q \\
+3.\,\, & d(P, Q)=0 \text { if } P=Q \\
+4. \,\,& d(P, Q) \leq d(P, R)+d(R, Q).
+\end{aligned}
+$$
+
+
+
