@@ -11,21 +11,21 @@ x2
 dados1= data.frame(x1,x2)
 dados1
 
-#a) MÈdia
+#a) M√©dia
 mean(x1)
 mean(x2)
 
-#b) Vari‚ncia
+#b) Vari√¢ncia
 var(x1)
 var(x2)
 
-#c) Covari‚ncia
+#c) Covari√¢ncia
 cov(x1,x2)
 
-#d) Dist‚ncia Euclidiana
+#d) Dist√¢ncia Euclidiana
 sqrt(sum((x1-x2)^2))
      
-#e) Dist‚ncia EstatÌstica
+#e) Dist√¢ncia Estat√≠stica
 x1p=x1/sqrt(var(x1))
 x1p
 x2p=x2/sqrt(var(x2))
@@ -41,16 +41,16 @@ x_2
 dados2= data.frame(x_1,x_2)
 dados2
 
-#a) Gr·fico de dispers„o dos dados
-plot(x_1,x_2, main = "Gr·fico de Dispers„o", xlab = "Eixo X",ylab = "Eixo Y", pch = 16,col = "blue")
+#a) Gr√°fico de dispers√£o dos dados
+plot(x_1,x_2, main = "Gr√°fico de Dispers√£o", xlab = "Eixo X",ylab = "Eixo Y", pch = 16,col = "blue")
 
 #b) Inferir o sinal da amostra 
 
-plot(X1,X2, main = "Gr·fico de Dispers„o com linha", pch = 16)
+plot(X1,X2, main = "Gr√°fico de Dispers√£o com linha", pch = 16)
 abline(lm(x_2 ~ x_1), col = "blue")
 
 
-#c) mÈdias de x_1 e x_2 e vari‚ncias 
+#c) m√©dias de x_1 e x_2 e vari√¢ncias 
 mean(x_1)
 mean(x_2)
 
@@ -61,7 +61,7 @@ var(x_2)
 cov(x_1,x_2)
 cor(x_1,x_2)  #correlacao negativa, a medida que o valor de uma variavel cresce o valor da outra decresce
 
-#e) Matriz mÈdia, matriz variancia e covari‚ncia e matriz correlacao
+#e) Matriz m√©dia, matriz variancia e covari√¢ncia e matriz correlacao
 
 matriz_m= c(mean(x_1),mean(x_2))
 matriz_m
@@ -83,7 +83,7 @@ X3
 dados3= data.frame(X1,X2,X3)
 dados3
 
-#a)vetor de mÈdias, matriz de covari‚ncia, matriz de correlacao
+#a)vetor de m√©dias, matriz de covari√¢ncia, matriz de correlacao
 
 medias=c(mean(X1), mean(X2), mean(X3))
 medias
