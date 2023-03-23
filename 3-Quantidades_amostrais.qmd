@@ -44,61 +44,202 @@ $$
 
 :::
 
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
 
 ## Função de densidade conjunta para vetores aleatórios
 
-Se os vetores linha $\mathbf{X}_1^{\prime}, \mathbf{X}_2^{\prime}, \ldots, \mathbf{X}_n^{\prime}$ representam observações independentes de uma distribuição conjunta comum com função de densidade $f(\mathbf{x})=f\left(x_1, x_2, \ldots, x_p\right)$, então $\mathbf{X}_1, \mathbf{ ; X}_2, \ldots, \mathbf{X}_n$ formam uma amostra aleatória de $f(\mathbf{x})$. Matematicamente, $\mathbf{X}_1, \mathbf{X}_2, \ldots, \mathbf{X}_n$ formam uma amostra aleatória se sua função de densidade conjunta for dada pelo produto $f\left(\mathbf{x ). }_1\right) f \left(\mathbf{x}_2\right) \cdots f\left(\mathbf{x}_n\right)$, onde $f\left(\mathbf{x}_j \right) =f\left(x_{j1},x_{j2},\ldots,x_{jp}\right)$ é a função de densidade para o $j$ o vetor linha.
+- Se os vetores linha $\mathbf{X}_1^{\prime}, \mathbf{X}_2^{\prime}, \ldots, \mathbf{X}_n^{\prime}$ representam observações independentes de uma distribuição conjunta comum com função de densidade $f(\mathbf{x})=f\left(x_1, x_2, \ldots, x_p\right)$, então $\mathbf{X}_1, \mathbf{X}_2, \ldots, \mathbf{X}_n$ formam uma amostra aleatória de $f(\mathbf{x})$. 
+
+<br/>
+
+- Matematicamente, $\mathbf{X}_1, \mathbf{X}_2, \ldots, \mathbf{X}_n$ formam uma amostra aleatória se sua função de densidade conjunta for dada pelo produto $f\left(\mathbf{x_1 }\right) f \left(\mathbf{x}_2\right) \cdots f\left(\mathbf{x}_n\right)$, onde $f\left(\mathbf{x}_j \right) =f\left(x_{j1},x_{j2},\ldots,x_{jp}\right)$ é a função de densidade para o $j$-ésimo vetor linha.
+:::
+
+::: {style="height:1000px; font-size:30px; margin-left: 5px; margin-right: 5px"}
 
 ## Observações da definição de amostra aleatória
 
-1. As medições das variáveis $p$ em uma única tentativa, como $\mathbf{X}_j^{\prime}=$ $\left[X_{j 1}, X_{j 2}, \ldots, X_{j p}\right]$, geralmente serão correlacionados. De fato, esperamos que assim seja. As medições de diferentes ensaios devem, no entanto, ser independentes.
+1. As medições das variáveis $p$ em uma única tentativa, como $\mathbf{X}_j^{\prime}=$ $\left[X_{j 1}, X_{j 2}, \ldots, X_{j p}\right]$, geralmente serão correlacionados. De fato, esperamos que assim seja. No entanto, a seleção da amostra deve ser obtida aleatóriamente.
 
+<br/>
 
-2. A independência das medições de tentativa para tentativa pode não se manter quando as variáveis tendem a se desviar ao longo do tempo, como com conjuntos de preços de ações $p$ ou indicadores econômicos $p$. Violações do pressuposto provisório de independência podem ter um sério impacto na qualidade das inferências estatísticas.
+2. A independência das observações pode não se manter quando as variáveis tendem a se desviar ao longo do tempo, como com conjuntos de preços de ações $p$ ou indicadores econômicos $p$, nesses casos a técnica adequada seria [Séries Temporais]{.underline}. Violações do pressuposto de independência podem ter um sério impacto na qualidade das inferências estatísticas.
+
+:::
+
+::: {style="height:1000px; font-size:28px; margin-left: 5px; margin-right: 5px"}
 
 ## Implicações da independência para calcular distâncias
 
 A noção de independência estatística tem implicações importantes para medir a distância. 
 
 - A distância euclidiana parece apropriada se os componentes de um vetor forem independentes e tiverem as mesmas variações. 
+
+<br/>
+
+
 - Suponha que consideramos a localização da $k$-ésima coluna $\mathbf{Y}_k^{\prime}=\left[X_{1 k}, X_{2 k}, \ldots, X_{n k}\right]$ de $\mathbf{X}$, considerado como um ponto em $n$ dimensões. 
 
+<br/>
+
+
 - A localização deste ponto é determinada pela distribuição de probabilidade conjunta $f \left(\mathbf{y}_k\right)=f\left(x_{1 k}, x_{2 k}, \ldots, x_{n k} \right)$. Quando as medições $X_{1 k}, X_{2 k}, \ldots, X_{n k}$ são uma amostra aleatória, $f\left(\mathbf{y}_k\right)=f\left(x_{ 1 k}, x_{2 k}, \ldots, x_{n k}\right)=$ $f_k\left(x_{1 k}\right) f_k\left(x_{2 k}\right) \cdots f_k \left(x_{n k}\right)$ e, consequentemente, cada coordenada $x_{j k}$ contribui igualmente para a localização através das distribuições marginais idênticas $f_k\left(x_{j k}\right)$.
+:::
 
 
-## Cenário com as variáveis não são independentes
+::: {style="height:1000px; font-size:28px; margin-left: 5px; margin-right: 5px"}
 
-- Se os componentes $n$ não forem independentes ou as distribuições marginais não forem idênticas, a influência das medições individuais (coordenadas) na localização é assimétrica. Seríamos então levados a considerar uma função de distância na qual as coordenadas eram ponderadas de forma desigual, como nas distâncias "estatísticas".
+## Cenário quando as variáveis não são independentes
+
+<br/>
+
+- Se os $n$ componentes não forem independentes ou as distribuições marginais não forem idênticas, a influência das medições individuais (coordenadas) na localização é assimétrica. Seríamos então levados a considerar uma função de distância na qual as coordenadas eram ponderadas de forma desigual, como nas distâncias "estatísticas".
+
+<br/>
 
 - Certas conclusões podem ser alcançadas sobre as distribuições amostrais de $\overline{\mathbf{X}}$ e $\mathbf{S}_n$ sem fazer outras suposições sobre a forma da distribuição conjunta subjacente das variáveis. Em particular, podemos ver como $\overline{\mathbf{X}}$ e $\mathbf{S}_n$ se saem como estimadores pontuais do vetor médio populacional correspondente $\boldsymbol{\mu}$ e matriz de covariância $\boldsymbol{\Sigma}$.
+:::
 
+
+::: {style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px"}
 
 ## Resultados Amostrais
 
-Seja $\mathbf{X}_1, \mathbf{X}_2, \ldots, \mathbf{X}_n$ uma amostra aleatória de uma distribuição conjunta que tem vetor de médias $\boldsymbol{\mu}$ e matriz de covariância $\boldsymbol{\Sigma}$. Então $\overline{\mathbf{X}}$ é um estimador não viesado de $\boldsymbol{\mu}$, e a matriz de covariância é
+Seja $\mathbf{X}_1, \mathbf{X}_2, \ldots, \mathbf{X}_n$ uma amostra aleatória de uma distribuição conjunta que tem vetor de médias $\boldsymbol{\mu}$ e matriz de covariância $\boldsymbol{\Sigma}$. Então $\overline{\mathbf{X}}$ é um [estimador não viesado]{.underline} de $\boldsymbol{\mu}$, e a matriz de covariância de $\boldsymbol{\bar X}$ é
 $$
-\frac{1}{n} \Sigma
+\frac{1}{n} \mathbf{\Sigma}
 $$
 Então,
 $$
 \begin{aligned}
 & E(\overline{\mathbf{X}})=\boldsymbol{\mu} \quad \text { (vetor de médias populacionais) } \\
-& \operatorname{Cov}(\overline{\mathbf{X}})=\frac{1}{n} \Sigma \quad\left(\begin{array}{c}
+& \operatorname{Cov}(\overline{\mathbf{X}})=\frac{1}{n} \mathbf{\Sigma} \quad\left(\begin{array}{c}
 \text { matriz de covariância populacional } \\
 \text { dividido pelo tamanho da amostra }
 \end{array}\right) \\
 &
 \end{aligned}
 $$
-Para a matriz de covariância $\mathbf{S}_n$
+:::
+
+::: {style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px"}
+
+### Estimadores não viesados para média e covariância
+
+- Pelo resultado anterior $E(\overline{\mathbf{X}}) = \boldsymbol \mu$, portanto, $\overline{\mathbf{X}}$ é um estimador não viesado para o vetor de parâmetros $\boldsymbol \mu$.
+
+- Para a matriz de covariância $\mathbf{S}_n$
 $$
 E\left(\mathbf{S}_n\right)=\frac{n-1}{n} \boldsymbol{\Sigma}=\mathbf{\Sigma}-\frac{1}{n} \mathbf{\Sigma}
 $$
 Então,
 $$
-E\left(\frac{n}{n-1} \mathbf{S}_n\right)=\Sigma
+E\left(\frac{n}{n-1} \mathbf{S}_n\right)= \mathbf{\Sigma}
 $$
-em que $[n /(n-1)] \mathbf{S}_n$ é um estimador não viesado de $\mathbf{\Sigma}$, equanto $\mathbf{S}_n$ é um estimador viesado com (Viés)=$E\left(\mathbf{S}_n\right)-\mathbf{\Sigma}=-(1 / n) \mathbf{\Sigma}$.
+em que $[n /(n-1)] \mathbf{S}_n$ é um [estimador não viesado]{.underline} de $\mathbf{\Sigma}$, equanto $\mathbf{S}_n$ é um [estimador viesado]{.underline} com Viés $=E\left(\mathbf{S}_n\right)-\mathbf{\Sigma}=-(1 / n) \mathbf{\Sigma}$.
+:::
+
+
+## Estimadores não Viesados 
+
+
+::: {.callout-note icon=false}
+
+## Estimador não viesado do vetor de médias $\boldsymbol \mu$
+
+$$
+\boldsymbol{\widehat{\mu}} = \boldsymbol{\bar{X}}
+$$
+
+:::
+
+
+::: {.callout-tip icon=false}
+
+## Estimador não viesado da matriz de covariância $\boldsymbol \Sigma$
+
+
+$$
+\boldsymbol{\widehat{\Sigma}} = \left(\frac{n}{n-1}\right) \mathbf{S}_n = \frac{1}{n-1} \sum_{j=1}^n\left(\mathbf{X}_j-\overline{\mathbf{X}}\right)\left(\mathbf{X}_j-\overline{\mathbf{X}}\right)^{\top}
+$$
+
+:::
+
+
+::: {style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px"}
+
+## Variância Generalizada
+
+<br/>
+
+- Quando temos apenas uma variável, a variância da amostra geralmente é usada para descrever a quantidade de variação nas medições dessa variável. 
+
+<br/>
+
+- Quando $p$ variáveis são observadas em cada unidade, a variação é descrita pela matriz de variância-covariância amostral
+
+$$
+\mathbf{S}=\left[\begin{array}{cccc}
+s_{11} & s_{12} & \cdots & s_{1 p} \\
+s_{12} & s_{22} & \cdots & s_{2 p} \\
+\vdots & \vdots & \ddots & \vdots \\
+s_{1 p} & s_{2 p} & \cdots & s_{p p}
+\end{array}\right]=\left\{s_{i k}=\frac{1}{n-1} \sum_{j=1}^n\left(x_{j i}-\bar{x}_i\right)\left(x_{j k}-\bar{x}_k\right)\right\}.
+$$
+:::
+
+::: {style="height:800px; font-size:28px; margin-left: 5px; margin-right: 5px"}
+
+## Variância amostral generalizada
+
+- A matriz de covariância amostral contém $p$ variâncias e $\frac{1}{2} p(p-1)$ covariâncias potencialmente diferentes. 
+
+- Às vezes é desejável atribuir um único valor numérico para a variação expressa por $\mathbf{S}$. 
+
+- Uma escolha para um valor é o determinante de $\mathbf{S}$, que reduz à variância amostral usual de uma única característica quando $p=1$. 
+
+- Esse determinante é chamado de **variância amostral generalizada**:
+
+
+::: {.callout-tip icon=false}
+
+## Variância amostral generalizada 
+
+$|\mathbf{S}| = det\left(  \boldsymbol S \right)$
+
+:::
+
+:::
+
+::: {style="height:800px; font-size:27px; margin-left: 5px; margin-right: 5px"}
+
+## Exemplo (Cálculo de uma variância generalizada) 
+
+Sejam as variáveis $(x_1)$ os empregados e $(x_2)$ os lucros por empregado, foi considerada as 16 maiores empresas editoriais dos Estados Unidos da América para uma análise. A matriz de covariância da amostra, obtida a partir dos dados do artigo da revista Forbes de 30 de Abril de 1990, é
+$$
+\mathbf{S}=\left( 
+\begin{array}{rr}
+252.04 & -68.43 \\
+-68.43 & 123.67
+\end{array}
+\right)
+$$
+Para avaliar a variância generalizada, neste caso, calculamos
+$$
+|\mathbf{S}|=(252.04)(123.67)-(-68.43)(-68.43)=26,487
+$$
+A variância generalizada da amostra fornece uma forma de escrever a informação de todas as variâncias e covariâncias em um único valor. 
+:::
+
+## Interpretação geométrica da variância generalizada
+
+- Quando $p>1$, alguma informação sobre a amostra é perdida no processo. 
+
+- Uma interpretação geométrica de $|\mathbf{S}|$ irá ajudar-nos a apreciar os seus pontos fortes e fracos como um resumo descritivo. 
+
+- Considere a área gerada dentro do plano por dois vectores de desvio $\mathbf{d}_1=\mathbf{y}_1-{x}_1 \mathbf{1}$ e $\mathbf{d}_2=\mathbf{y}_2-{x}_2 \mathbf{1}$. Que $L_{\mathbf{d}_1}$ seja o comprimento de $\mathbf{d}_1$ e $L_{mathbf{d}_2}$ o comprimento de $\mathbf{d}_2$. Por geometria elementar, temos o diagrama
+
+
 
 
 
