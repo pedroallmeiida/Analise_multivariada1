@@ -44,9 +44,9 @@ $$
 
 \[c\] Calcule as médias amostrais $\bar{x}_1$ e $\bar{x}_2$ e as variâncias amostrais $s_{11}$ e $s_{22}$.
 
-\[d\] Calcule a covariância de amostra $s_{12}$ e o coeficiente de correlação de amostra $r_{12}$. Interprete essas quantidades.
+\[d\] Calcule a covariância amostral $s_{12}$ e o coeficiente de correlação amostral $r_{12}$. Interprete essas quantidades.
 
-\[e\] Obtenha a amostra de matriz média $\overline{\mathbf{x}}$, a amostra de matriz de variância-covariância $\mathbf{S}_n$ e a amostra de matriz de correlação $\mathbf{R}$.
+\[e\] Obtenha o vetor de médias amostrais, $\overline{\mathbf{x}}$, matriz de variância-covariância amostral $\mathbf{S}_n$ e matriz de correlação amostral $\mathbf{R}$.
 
 3.  A seguir estão cinco medições nas variáveis $x_1, x_2$ e $x_3$:
 
