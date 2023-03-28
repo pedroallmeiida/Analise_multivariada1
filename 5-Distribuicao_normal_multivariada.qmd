@@ -1,0 +1,166 @@
+---
+title: "Distribuição Normal Multivariada"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+---
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+## Distribuição normal multivariada
+
+O vetor $\boldsymbol{X}_{p \times 1}=\left(X_1, \ldots, X_p\right)^{\top}$ tem distribuição normal multivariada ( $p$-variada) se sua função densidade de probabilidade é dada por 
+
+$$
+f(\boldsymbol{x})=\frac{1}{(2 \pi)^{p / 2}|\boldsymbol \Sigma|^{1 / 2}} \exp \left\{-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^{\top} \boldsymbol \Sigma^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\},
+$$ 
+
+com $-\infty<x_i<\infty, i=1,2, \ldots, p$ e $\boldsymbol \Sigma$ uma matriz positiva definida.
+
+<br/>
+
+**Notação:** $\boldsymbol{X} \sim N_p(\boldsymbol{\mu}, \boldsymbol \Sigma)$
+
+
+:::
+
+## Função densidade normal bivariada
+
+![](images/paste-07355A8F.png)
+
+## Definição alternativa (Normal multivariada)
+
+::: {.callout-tip icon="false"}
+## Definição
+
+$\boldsymbol{X}$ tem distribuição normal $p$-variada se e somente se $\boldsymbol{X}^{\top}$ tem distribuição normal univariada, para qualquer vetor fixo $\boldsymbol a_{p \times 1}$.
+:::
+
+<br/>
+
+**Observação:** Se $\boldsymbol{X}$ é considerado um ponto aleatório no espaço p-dimensional, então $\boldsymbol{a^{\top}} \boldsymbol{X}$ pode ser considerado uma projeção de $\boldsymbol{X}$ em um subespaço unidimensional.
+
+## Distribuição da forma linear
+
+**Teorema:** Se $\boldsymbol{X}$ tem distribuição normal $p$-variada, e se $\boldsymbol{Y}= \boldsymbol A \boldsymbol{X}+\boldsymbol{b}$, com $\boldsymbol A_{q \times p}$ e $\boldsymbol b_{q\times1}$ fixos, então $\boldsymbol Y$ tem distribuição multivariada $q$-variada.
+
+<br/>
+
+## Distribuição de subconjuntos da matriz X
+
+**Corolário:** Qualquer subconjunto de elementos de um vetor $\boldsymbol{X}$ com distribuição normal multivariada tem distribuição normal multivariada. Em particular, cada elemento unidimensional tem distribuição normal univariada.
+
+<br/>
+
+**Observação:** Para o Teorema e Corolário anterior, a matriz de variâncias e covariâncias de $\boldsymbol{X}$, isto é $\boldsymbol \Sigma$, é suposta de [posto completo]{.underline}.
+
+## Teoremas e Corolários
+
+::: {.callout-tip icon="false"}
+## Teorema
+
+Se $\boldsymbol{X} \sim N_p(\boldsymbol \mu, \boldsymbol \Sigma)$, com $\boldsymbol \Sigma>0$ e se $\boldsymbol{Y}=\boldsymbol{A} \boldsymbol{X}+\boldsymbol{b}$, com $\boldsymbol A_{q \times p}$ e ${q} \times 1$ fixos (não aleatórios), então $\boldsymbol{Y} \sim N_q\left(\boldsymbol A \boldsymbol\mu +\boldsymbol{b}, \boldsymbol A \boldsymbol\Sigma \boldsymbol{A}^{\top}\right)$.
+:::
+
+::: {.callout-tip icon="false"}
+## Corolário
+
+Se $\boldsymbol{X} \sim N_p(\boldsymbol{\mu}, \boldsymbol \Sigma)$, com $\boldsymbol \Sigma>0$ e se $\boldsymbol Y=\boldsymbol{a} \boldsymbol{X}$, com $\boldsymbol{a} \times 1$ fixo, então $\boldsymbol Y \sim N\left(\boldsymbol a^{\top} \boldsymbol{\mu}, \boldsymbol a^{\top} \boldsymbol \Sigma \boldsymbol a\right)$ (normal univariada)
+:::
+
+::: {.callout-tip icon="false"}
+## Corolário
+
+Se $\boldsymbol{X} \sim N_p(\boldsymbol{\mu}, \boldsymbol \Sigma), \operatorname{com} \boldsymbol \Sigma>0$ e se $\boldsymbol{Z}=\boldsymbol \Sigma^{-1 / 2}(\boldsymbol{X}-\boldsymbol{\mu})$, então $\boldsymbol{Z} \sim N_p\left(\boldsymbol{0}, \boldsymbol I_p\right)$. Além disso, $(\boldsymbol{X}-\boldsymbol{\mu})^{\top} \boldsymbol \Sigma^{-1}(\boldsymbol{X}-\boldsymbol \mu)=\sum_{i=1}^p \boldsymbol Z_i^2 \sim \chi_p^2$.
+:::
+
+## teoremas (resultados vetores normais multivariados)
+
+::: {.callout-tip icon="false"}
+## Teorema
+
+a.  Dois vetores aleatórios com distribuição normal multivariada são independentes se e somente se eles são não-correlacionados.
+
+b.  Para dois vetores conjuntamente normais, a independência de todos os pares de seus componentes implica na independência dos dois vetores originais.
+:::
+
+::: {.callout-tip icon="false"}
+## Teorema
+
+Se $\boldsymbol{X} \sim N(\boldsymbol \mu, \boldsymbol \Sigma)$ e duas matrizes $\boldsymbol A$ e $\boldsymbol B$ fixas, então $\boldsymbol A \boldsymbol{X}$ e $\boldsymbol B \boldsymbol{X}$ são independentes se e somente se $\boldsymbol A \boldsymbol \Sigma \boldsymbol B^{\top}=0$.
+:::
+
+
+## Resultados 
+
+Considere $\boldsymbol{X} \sim N(\boldsymbol \mu, \boldsymbol \Sigma)$ e a partição
+
+$$
+\boldsymbol{X} = \left( \begin{array}{c}\boldsymbol{X}_{1(q \times 1)} \\\boldsymbol{X}_{2((p-q) \times 1)}\end{array} \right) \sim N_p\left[\left(\begin{array}{c}\boldsymbol{\mu}_{1(q \times 1)} \\\boldsymbol \mu_{2((p-q) \times 1)}\end{array}\right),\left(\begin{array}{cc}\boldsymbol \Sigma_{11} & \boldsymbol \Sigma_{12} \\\boldsymbol \Sigma_{21} & \boldsymbol \Sigma_{22}\end{array}\right)\right]
+$$
+
+Então,
+
+a.  $X_1 \sim N_q\left(\boldsymbol \mu_1, \boldsymbol \Sigma_{11}\right)$
+
+b.  $X_1$ e $X_2$ são independentes se e somente se $\boldsymbol \Sigma_{12}=0$.
+
+
+## Distância de Mahalanobis
+
+Considere $\boldsymbol{X} \sim N_p(\boldsymbol{\mu}, \boldsymbol \Sigma)$ com $|\boldsymbol \Sigma|>0$. Então, 
+
+<br/>
+
+
+a. $(\boldsymbol{X}-\mu)^{\top} \Sigma^{-1}(\boldsymbol{X}-\boldsymbol{\mu}) \sim \chi_p^2$;
+
+<br/>
+
+b. $P\left(\boldsymbol{X} ;(\boldsymbol{X}-\boldsymbol{\mu})^{\top} \Sigma^{-1}(\boldsymbol{X}-\boldsymbol{\mu}) \leq \chi_{p, \alpha}^2\right)=1-\alpha$
+
+<br/>
+
+A quantidade $(\boldsymbol{X}-\mu)^{\top} \Sigma^{-1}(\boldsymbol{X}-\boldsymbol{\mu})$ é chamada de **Distância de Mahalanobis** entre $\boldsymbol{X}$ e $\boldsymbol{\mu}$.
+
+## Densidade Normal multivariada
+
+A densidade da normal multivariada é constante em superfícies em que 
+$$
+(\boldsymbol{x}-\boldsymbol{\mu})^{\top} \boldsymbol \Sigma^{-1}(\boldsymbol{x}-\boldsymbol \mu)=c^2
+$$ 
+e o conjunto dos $\boldsymbol{x}$ que satisfazem a equação acima são os que compõem o **contorno de densidade de probabilidade constante**.
+
+
+## Contornos de densidade constante
+
+::: {.callout-tip icon="false"}
+
+## Propriedade 
+
+Os contornos de densidade constante no caso normal multivariado são elipsoides definidos por $\boldsymbol{x}$ tais que 
+$$
+(\boldsymbol{x}-\boldsymbol{\mu})^{\top} \Sigma^{-1}(\boldsymbol{x}-\boldsymbol{\mu})=c^2
+$$ 
+
+Esses elipsóides têm centro em $\boldsymbol{\mu}$ e eixos em $\pm c \sqrt{\lambda_i} e_i$ em que $\left(\lambda_i, e_i\right)$ é um par de autovalor-autovetor de $\Sigma$.
+:::
+
+
+
+
+

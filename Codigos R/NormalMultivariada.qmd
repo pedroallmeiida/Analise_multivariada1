@@ -1,0 +1,66 @@
+---
+title: "Códigos R - Análise Multivariada"
+author: "Pedro Almeida"
+format: html
+editor: visual
+---
+
+## Distribuição Normal Multivariada no R
+
+Inicialmente, suponha o cenário em que temos duas variáveis aleatórias sem correlação:
+
+```{r}
+
+## vetor de medias 
+mu=c(0,0)
+
+## Matriz de covariancia 
+Sigma = matrix(c(2,0,0,1),nrow=2)
+Sigma
+
+
+```
+
+O pacote mvtnorm fornece um gerador para a distribuição multivariada.
+
+```{r}
+library(mvtnorm)
+
+# Simulação de amostras da Normal Multivariada
+
+set.seed(11111)
+x = rmvnorm(100, mean=mu, sigma=Sigma);
+pairs(x);
+
+
+```
+
+Para plotar a função de Densidade da normal multivariada, usamos a função persp()
+
+```{r}
+
+x1 <- seq(-6, 6, length= 50)
+x2 <- x1
+
+f <- matrix(0, nrow=length(x1), ncol=length(x2))
+
+for (i in 1:length(x1))
+  for (j in 1: length(x2))
+    f[i,j] <- dmvnorm(c(x1[i],x2[j]), mean=mu, sigma=Sigma)
+
+ persp(x1, x2, f, theta = 30, phi = 30, col = "darkred", ticktype = "detailed")
+
+
+
+```
+
+A função contour() calcula as curvas de contorno para a distribuição normal multivariada. Podemos ver que, como as variáveis $x_1$ e $x_2$ não são correlacionadas, então a inclinação dos contornos é nula.
+
+```{r}
+
+
+contour(x1, x2, f, draw=T, nlevels=20, labcex=0.8, 
+        xlab=expression(x[1]),ylab=expression(x[2]))
+
+```
+

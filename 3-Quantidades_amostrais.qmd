@@ -231,15 +231,6 @@ $$
 A variância generalizada da amostra fornece uma forma de escrever a informação de todas as variâncias e covariâncias em um único valor. 
 :::
 
-## Interpretação geométrica da variância generalizada
-
-- Quando $p>1$, alguma informação sobre a amostra é perdida no processo. 
-
-- Uma interpretação geométrica de $|\mathbf{S}|$ irá ajudar-nos a apreciar os seus pontos fortes e fracos como um resumo descritivo. 
-
-- Considere a área gerada dentro do plano por dois vectores de desvio $\mathbf{d}_1=\mathbf{y}_1-{x}_1 \mathbf{1}$ e $\mathbf{d}_2=\mathbf{y}_2-{x}_2 \mathbf{1}$. Que $L_{\mathbf{d}_1}$ seja o comprimento de $\mathbf{d}_1$ e $L_{mathbf{d}_2}$ o comprimento de $\mathbf{d}_2$. Por geometria elementar, temos o diagrama
-
-
 
 
 

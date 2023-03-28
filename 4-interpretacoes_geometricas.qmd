@@ -1,0 +1,108 @@
+---
+title: "Interpretação geométrica variância Generalizada"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+---
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+## Interpretação geométrica da variância generalizada
+
+-   Quando $p>1$, alguma informação sobre a amostra é perdida no processo.
+
+-   Uma interpretação geométrica de $|\mathbf{S}|$ irá ajudar-nos a apreciar os seus pontos fortes e fracos como um resumo descritivo.
+:::
+
+## Vetores de desvio
+
+Considere $\mathbf{d}_i$ o vetor desvio sendo o vetor da diferença das observações de uma variável com sua respectiva média:
+
+$$
+\mathbf{d}_i=\mathbf{x}_i-\bar{x}_i \mathbf{1}=\left[\begin{array}{c}
+x_{1 i}-\bar{x}_i \\
+x_{2 i}-\bar{x}_i \\
+\vdots \\
+x_{n i}-\bar{x}_i
+\end{array}\right]
+$$
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Geometria dos vetores desvio
+
+Considere a área gerada dentro do plano por dois vetores de desvio $\mathbf{d}_1=\mathbf{x}_1-\bar{x}_1 \mathbf{1}$ e $\mathbf{d}_2=\mathbf{x}_2-\bar{x}_2 \mathbf{1}$. Seja $L_{\mathbf{d}_1}$ o comprimento de $\mathbf{d}_1$ e $L_{\mathbf{d}_2}$ o comprimento de $\mathbf{d}_2$. Por geometria elementar, temos 
+
+![](images/fig_geom.png)
+:::
+
+
+## Área trapézio
+
+
+- A área do trapézio é $\left|L_{\mathbf{d}_1} \sin (\theta)\right| L_{\mathbf{d}_2}$. 
+
+- Seja $\cos ^2(\theta)+\sin ^2(\theta)=1$, podemos expressar essa área como 
+
+$$
+\text { Area }=L_{\mathbf{d}_1} L_{\mathbf{d}_2} \sqrt{1-\cos ^2(\theta)}
+$$ 
+::: {style="height:800px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+
+
+## Área de um trapézio em termos estatísticos
+
+Das equações $L_{\mathbf{d}_i}^2=\mathbf{d}_i^{\prime} \mathbf{d}_i=\sum_{j=1}^n\left(x_{j i}-\bar{x}_i\right)^2$ e $\mathbf{d}_i^{\prime} \mathbf{d}_k=L_{\mathbf{d}_i} L_{\mathbf{d}_k} \cos \left(\theta_{i k}\right)$ , então 
+
+$$
+\begin{aligned}
+& L_{\mathbf{d}_1}=\sqrt{\sum_{j=1}^n\left(x_{j 1}-\bar{x}_1\right)^2}=\sqrt{(n-1) s_{11}} \\
+& L_{\mathbf{d}_2}=\sqrt{\sum_{j=1}^n\left(x_{j 2}-\bar{x}_2\right)^2}=\sqrt{(n-1) s_{22}}
+\end{aligned}
+$$ 
+e 
+$$
+\cos (\theta)=r_{12}
+$$ 
+Portanto, 
+$$
+\text { Area }=(n-1) \sqrt{s_{11}} \sqrt{s_{22}} \sqrt{1-r_{12}^2}=(n-1) \sqrt{s_{11} s_{22}\left(1-r_{12}^2\right)}
+$$ 
+
+:::
+
+## Variância generalizada 
+
+$$
+\begin{aligned}
+|\mathbf{S}| & =\left|\left[\begin{array}{cc}
+s_{11} & s_{12} \\
+s_{12} & s_{22}
+\end{array}\right]\right| \\
+&=\left|\left[\begin{array}{cc}
+s_{11} & \sqrt{s_{11}} \sqrt{s_{22}} r_{12} \\
+\sqrt{s_{11}} \sqrt{s_{22}} r_{12} & s_{22}
+\end{array}\right]\right| \\
+& =s_{11} s_{22}-s_{11} s_{22} r_{12}^2=s_{11} s_{22}\left(1-r_{12}^2\right)
+\end{aligned}
+$$
+## Exemplo de variância generalizada para três dimensões
+
+
+![](images/ex_var_generalizada.png)
+
+
