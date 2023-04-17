@@ -1,0 +1,8 @@
+---
+title: "Detecção de outliers"
+author: "Pedro Almeida"
+format: html
+editor: visual
+---
+
+## Detecção de outliers pela distância de Mahalanobis
