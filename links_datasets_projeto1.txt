@@ -1,0 +1,21 @@
+
+
+## deteccao de fraud no cartao de credito 
+
+https://www.kaggle.com/code/smnuruzzaman/fraud-detection-with-smote-and-shap-xgb-99-99/input
+
+## Qualidade de vinhos 
+
+https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009
+
+## Deteccao de cancer 
+
+https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset
+
+## Desigualdade de genero 
+
+https://www.kaggle.com/datasets/gianinamariapetrascu/gender-inequality-index
+
+## Consumidor 
+
+https://www.kaggle.com/datasets/datascientistanna/customers-dataset
