@@ -1,0 +1,176 @@
+---
+title: "Inferência sobre a média"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+---
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Distribuição normal multivariada
+
+O vetor $\boldsymbol{X}_{p \times 1}=\left(X_1, \ldots, X_p\right)^{\top}$ tem distribuição normal multivariada ( $p$-variada) se sua função densidade de probabilidade é dada por 
+
+$$
+f(\boldsymbol{x})=\frac{1}{(2 \pi)^{p / 2}|\boldsymbol \Sigma|^{1 / 2}} \exp \left\{-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^{\top} \boldsymbol \Sigma^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\},
+$$ 
+
+com $-\infty<x_i<\infty, i=1,2, \ldots, p$ e $\boldsymbol \Sigma$ uma matriz positiva definida.
+
+<br/>
+
+**Notação:** $\boldsymbol{X} \sim N_p(\boldsymbol{\mu}, \boldsymbol \Sigma)$
+
+
+:::
+
+::: {style="height:500px; font-size:29px; margin-left: 5px; margin-right: 5px"}
+
+
+## Estimação dos parâmetros 
+
+Sejam $\boldsymbol X_1, \ldots, \boldsymbol X_p$ vetores aleatórios que seguem uma distribuição $N_p(\boldsymbol \mu, \boldsymbol \Sigma)$. A função densidade de probabilidade conjunta de $\boldsymbol{X_1}, \ldots, \boldsymbol{X_n}$ é dada por
+$$
+\begin{aligned}
+f\left(\boldsymbol{x}_1, \ldots, \boldsymbol{x}_n\right)=&\prod_{j=1}^n \frac{1}{(2 \pi)^{p / 2}|\boldsymbol \Sigma|^{1 / 2}} \exp \left\{-\frac{\left(\boldsymbol{x}_j-\boldsymbol \mu\right)^{\top}  \boldsymbol \Sigma^{-1}\left(\boldsymbol{x}_j-\boldsymbol \mu\right)}{2}\right\} \\
+=&\frac{1}{(2 \pi)^{n p / 2}|\boldsymbol \Sigma|^{n / 2}} \exp \sum_{j=1}^n\left\{-\frac{\left(\boldsymbol{x}_j-\boldsymbol\mu\right)^{\top} \boldsymbol\Sigma^{-1}\left(\boldsymbol{x}_j- \boldsymbol\mu\right)}{2}\right\} \text {. } \\ 
+\end{aligned}
+$$
+:::
+
+## Resultados importantes
+
+
+Seja $\boldsymbol A_{k \times k}$ uma matriz simétrica e $\boldsymbol X_{k \times 1}$ um vetor:
+
+- $\boldsymbol X^{\top} \boldsymbol A \boldsymbol X = \operatorname{tr}\left( \boldsymbol X^{\top} \boldsymbol A \boldsymbol X  \right) = \operatorname{tr}\left( \boldsymbol A  \boldsymbol X \boldsymbol X^{\top}\right)$
+
+- $\operatorname{tr}(A)=\sum_{i=1}^k \lambda_i, \operatorname{com} \lambda_i$ sendo os autovalores de $A$ para $i=1, \ldots, k$.
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Derivações 
+
+Utilizando o resultado anterior, temos que
+$$
+\begin{aligned}
+& \sum_{j=1}^n\left\{\left(\boldsymbol x_j-\boldsymbol\mu\right)^{\top} \boldsymbol \Sigma^{-1}\left(\boldsymbol x_j-\boldsymbol\mu\right)\right\}= \\
+& \sum_{j=1}^n \operatorname{tr}\left\{\left(\boldsymbol x_j-\boldsymbol{\mu}\right)^{\top} \boldsymbol\Sigma^{-1}\left(\boldsymbol{x}_j-\boldsymbol{\mu}\right)\right\}= \\
+& \sum_{j=1}^n \operatorname{tr}\left\{\boldsymbol\Sigma^{-1}\left(\boldsymbol x_j-\boldsymbol\mu\right)\left(\boldsymbol x_j-\boldsymbol \mu\right)^{\top}\right\}= \\
+& \operatorname{tr}\left\{\boldsymbol\Sigma^{-1} \sum_{j=1}^n\left(\boldsymbol x_j-\boldsymbol\mu\right)\left(\boldsymbol x_j-\boldsymbol\mu\right)^{\top}\right\}= \\
+& \operatorname{tr}\left\{\boldsymbol\Sigma^{-1} \sum_{j=1}^n\left(\boldsymbol{x}_j-\boldsymbol{x}+\boldsymbol{x}-\boldsymbol{\mu}\right)\left(\boldsymbol{x}_j-\boldsymbol{x}+\boldsymbol{x}-\boldsymbol{\mu}\right)^{\top}\right\}= \\
+& 
+\operatorname{tr}\left\{\boldsymbol \Sigma^{-1}\left[\sum_{j=1}^n\left(\boldsymbol x_j-\boldsymbol{x}\right)\left(\boldsymbol x_j-\boldsymbol{x}\right)^{\top}+n(\boldsymbol{x}-\boldsymbol{\mu})(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\right]\right\} .
+\end{aligned}
+$$
+Prova em Johnson (2013, p. 169).
+
+
+:::
+
+
+::: {style="height:800px; font-size:24px; margin-left: 10px; margin-right: 5px"}
+
+
+## Verossimilhança 
+
+$$
+\begin{aligned}
+\text{L}( \boldsymbol \mu, \boldsymbol \Sigma^2  )= &\frac{1}{(2 \pi)^{n p / 2}|\boldsymbol \Sigma|^{n / 2}} \\ &\times \exp\left\{ -\operatorname{tr}\left[\boldsymbol \Sigma^{-1}\left(\sum_{j=1}^n\left(\boldsymbol x_j-\boldsymbol{x}\right)\left(\boldsymbol x_j-\boldsymbol{x}\right)^{\top}+n(\boldsymbol{x}-\boldsymbol{\mu})(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\right) \right]/2 \right\} \\
+&
+\end{aligned}
+$$
+
+
+### Log-Verossimilhança 
+
+Aplicando o logarítmo na expressão anterior, obtemos a logverossimilhança:
+
+$$
+\begin{aligned}
+\ell( \boldsymbol \mu, \boldsymbol \Sigma^2  ) = & -\frac{n p}{2} \log (2 \pi)-\frac{n}{2} \log |\boldsymbol\Sigma| \\
+&- \frac{1}{2}\operatorname{tr}\left[\boldsymbol \Sigma^{-1}\left(\sum_{j=1}^n\left(\boldsymbol x_j-\boldsymbol{x}\right)\left(\boldsymbol x_j-\boldsymbol{x}\right)^{\top}+n(\boldsymbol{x}-\boldsymbol{\mu})(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\right) \right]  \\
+&
+\end{aligned}
+$$
+:::
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+
+## EStimadores de Máxima Verossimilhança 
+
+Os estimadores de máxima verossimilhança de $\underset{\sim}{\mu}$ e $\Sigma$ são dados por:
+
+
+$$
+\boldsymbol{\hat{\mu}}=\bar{\boldsymbol X} \quad e \quad \hat{\boldsymbol \Sigma}_{M V}=\frac{1}{n} \sum_{j=1}^n(\boldsymbol{X}_j-\boldsymbol{\bar{X}})(\boldsymbol{X}-\boldsymbol{\bar{X}})^{\top}
+$$
+Prova em Johnson (2007, p. 172).
+
+:::
+
+## Estimador não viesado para a matriz de covariância
+
+
+Note que, como já mostramos, $\hat{\boldsymbol\Sigma}_{\mathrm{MV}}$ é viesado para estimar $\boldsymbol \Sigma$.
+Assim, em muitas aplicações consideramos o estimador não viesado para $\boldsymbol \Sigma$
+
+
+
+## Resultados amostrais
+
+Sejam $\boldsymbol{\hat{\mu}}=\bar{X} \text { e } \hat{\boldsymbol\Sigma}=S=\frac{1}{n-1} \sum_{j=1}^n(\boldsymbol{X}-\boldsymbol{X})(\boldsymbol{X}-\boldsymbol{X})^{\top}$.
+
+Temos os seguintes Resultados
+
+(1) $\boldsymbol{\bar{X}} \sim N_p\left(\boldsymbol{\mu}, \frac{\boldsymbol\Sigma}{n}\right)$.
+
+(2) $(n-1) S \sim$ Wishart $(n-1)$.
+
+(3) $\boldsymbol{X}$ e $S$ são independentes.
+
+## 
+
+Obs: A distribuição Wishart é uma generalização da distribuição Gama, e é definida como a soma de produtos de normais multivariadas independentes de média $\boldsymbol{0}$ e variância $\boldsymbol\Sigma$.
+
+Em outras palavras, seja
+
+$$
+W = \sum^{n}_{i=1} \boldsymbol Z_i \boldsymbol Z_i^{\top} \quad \text{com Z_i} \sim N( \boldsymbol 0, \boldsymbol\Sigma  )
+$$
+
+Então
+$$
+W \sim \operatorname{Wishart}(\boldsymbol\Sigma, n)
+$$
+## Distribuição assintótica de $\bar{\boldsymbol X}$
+
+### Teorema do Limite Central
+
+Seja $\boldsymbol{X_1}, \ldots, \boldsymbol{X_n}$ uma amostra aleatória de uma distribuição qualquer definida.
+Então, para $n$ suficientemente grande e $n>>p$, temos
+$$
+\sqrt{n} \left( \bar{\boldsymbol X} - \boldsymbol \mu \right)   \sim N_p(\boldsymbol{0}, \boldsymbol \Sigma)
+$$
+e ainda
+$$
+n \left( \bar{\boldsymbol X} - \boldsymbol \mu \right)^{\top} S^{-1}\left( \bar{\boldsymbol X} - \boldsymbol \mu \right) \sim \chi_p^2
+$$ 
+
+

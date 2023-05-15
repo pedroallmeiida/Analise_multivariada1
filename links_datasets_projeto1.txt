@@ -2,11 +2,15 @@
 
 ## deteccao de fraud no cartao de credito 
 
-https://www.kaggle.com/code/smnuruzzaman/fraud-detection-with-smote-and-shap-xgb-99-99/input
+https://www.kaggle.com/code/smnuruzzaman/fraud-detection-with-smote-and-shap-xgb-99-99/input 
 
 ## Qualidade de vinhos 
 
-https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009
+https://www.kaggle.com/datasets/uciml/red-wine-quality-cortez-et-al-2009 
+
+## Predicao de diabetes 
+
+https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset
 
 ## Deteccao de cancer 
 
