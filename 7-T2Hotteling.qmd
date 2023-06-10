@@ -1,0 +1,228 @@
+---
+title: "Testes de hipóteses para a média"
+title-slide-attributes:
+  data-background-image: Marca_UEPB.png
+  data-background-size: contain
+  data-background-opacity: "0.1"
+author: "Pedro Almeida"
+format: 
+  revealjs: 
+    logo: Marca_UEPB.png
+    theme: solarized
+    transition: slide
+    background-transition: fade
+    smaller: false
+    scrollable: true
+knitr:
+  opts_chunk:
+    message: false
+    warning: false
+css: hscroll.css
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+::: {style="height:500px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+# Testes de hipóteses para a média
+
+Seja $\boldsymbol{X_1}, \ldots, \boldsymbol{X}_n$ uma amostra aleatória
+de uma distribuição normal $p$-variada com vetor de médias
+$\boldsymbol \mu$ e matriz de variâncias e covariâncias
+$\boldsymbol \Sigma$. Sejam $\bar{\boldsymbol X}$ e $\boldsymbol S$ o
+vetor de médias amostrais e a matriz de variâncias e covariâncias
+amostrais, respectivamente.
+
+Queremos avaliar se 
+
+$$
+\begin{aligned}
+& H_0: \boldsymbol \mu= \boldsymbol \mu_0 \quad \times \quad H_1: \boldsymbol \mu \neq \boldsymbol \mu_0,
+\end{aligned}
+$$
+:::
+
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+## Estatística $T^2$
+
+Assumindo os seguintes resultados,
+
+(1) $\boldsymbol{\bar{X}} \sim N_p\left(\boldsymbol{\mu}, \frac{\boldsymbol\Sigma}{n}\right)$.
+
+(2) $(n-1) \boldsymbol S \sim$ Wishart $(n-1)$.
+
+(3) $\boldsymbol{X}$ e $S$ são independentes.
+
+Temos que a estatística $T^2$ pode ser expressa como:
+
+$$
+T^2= \sqrt{n}(\boldsymbol{\bar X}-\boldsymbol{\mu})^{\top}\left(\frac{(n-1) \boldsymbol S^{-1}}{n-1}\right) \sqrt{n}(\boldsymbol{\bar X}-\boldsymbol{\mu}) \\ 
+= n(\boldsymbol{\bar X}-\boldsymbol{\mu})^{\top} \boldsymbol S^{-1} (\boldsymbol{\bar X}-\boldsymbol{\mu})
+\sim \frac{(n-1) p}{n-p} F_{p, n-p}
+$$
+
+A estatística $T^2$ é também conhecida por $T^2$ de **Hotelling**.
+:::
+
+## Decisão do teste
+
+Assim, rejeitamos $H_0$ a um nível de significância $\alpha$ se 
+
+$$
+T_{o b s}^2= n(\boldsymbol{\bar X}-\boldsymbol{\mu})^{\top} \boldsymbol S^{-1} (\boldsymbol{\bar X}-\boldsymbol{\mu}) >\frac{(n-1) p}{n-p} q_{F_{p, n-p, \alpha}}
+$$ 
+em que $q_{F_{p, n-p, \alpha}}$ é o quantil de uma distribuição
+$F_{p, n-p}$ com nível $\alpha$.
+
+::: {style="height:800px; font-size:30px; margin-left: 5px; margin-right: 5px"}
+
+## Região de Confiança
+
+-   Seja $\boldsymbol{X}_1, \ldots, \boldsymbol{X}_n$ uma amostra
+    aleatória de uma distribuição
+    $N_p(\boldsymbol{\mu}, \boldsymbol\Sigma)$. Uma região com
+    $100(1-\alpha) \%$ de confiança para $\boldsymbol{\mu}$ é dada pelo
+    elipsóide determinado pelos valores de $\boldsymbol{\mu}^{\star}$
+    que satisfazem $$
+    n\left(\boldsymbol{\bar{x}}-\boldsymbol{\mu}^{\star}\right)^{\top} S^{-1}\left(\boldsymbol{\bar{x}}-\boldsymbol{\mu}^{\star}\right) \leq \frac{(n-1) p}{n-p} F_{p, n-p, \alpha}=c
+    $$ em que $\bar{\boldsymbol X}$ e $\boldsymbol S$ são,
+    respectivamente, a média e a matriz de variâncias e covariâncias
+    amostrais observadas.
+
+-   Assim, para verificar se $\boldsymbol \mu_0$ está dentro da região
+    de confiança, verificamos se
+
+$$
+n\left(\boldsymbol{\bar{x}}-\boldsymbol{\mu}_0\right)^{\top} S^{-1}\left(\boldsymbol{\bar{x}}-\boldsymbol{\mu}_0\right) \leq \frac{(n-1) p}{n-p} F_{p, n-p, \alpha}
+$$
+
+Se for verdadeiro, $\boldsymbol{\mu}_0$ está dentro da região de
+confiança, e portanto não rejeitamos a hipótese nula
+$H_0: \boldsymbol \mu= \boldsymbol \mu_0$.
+:::
+
+::: {style="height:500px; font-size:28px; margin-left: 5px; margin-right: 5px"}
+
+## Como calcular o teste $T^2$ - Hotteling no R ?
+
+No software R, usamos a função {{< HotellingsT2 >}} do pacote ICSNP.  A seguir vamos fazer um exemplo no R. 
+
+**Descrição dos dados**
+
+Mudança na resposta pulmonar após exposição ao pó de algodão de 12 trabalhadores após 6 horas de exposição ao pó de algodão. As variáveis utilizadas foram: 
+
+- **FVC**: Mudança em FVC (*Forced Vital Capacity*) após 6 horas.
+
+- **FEV**: Mudança em FEV (*Forced Expiratory Volume*) após 6 horas.
+
+- **CC**: Mudança em CC (*Closing Capacity*) após 6 horas.
+
+**Carregando o banco de dados**
+
+```{r, echo = T}
+
+library(mvtnorm)
+library(ICSNP)
+
+data(pulmonary)
+pulmonary
+
+```
+
+
+Usando o teste $T^2$-Hotteling podemos testar por exemplo, se o vetor de médias é igual ao vetor de zeros, $\boldsymbol 0 = [0, 0, 0]$:
+
+```{r, echo = T}
+## Para usar a distribuição F para a distribuição da estatística T2
+HotellingsT2(pulmonary, mu = c(0,0,0), test = "f")
+
+
+```
+
+Para usar a aproximação pela distribuição qui-quadrado:
+
+```{r, echo = T}
+
+HotellingsT2(pulmonary, mu = c(0,0,0), test = "chi")
+```
+:::
+
+# Teste para duas amostras independentes 
+
+## Comparação de médias de duas populações independentes 
+
+Considere os seguintes vetores aleatórios independentes:
+
+- $\boldsymbol X_{11}, \ldots, \boldsymbol X_{1 n}$ vetores aleatórios $p \times 1$ referentes a uma população com $\mathbb{E}( \boldsymbol X_{1j} ) = \boldsymbol \mu_1$ para $j = 1, \ldots, n$,
+
+- $\boldsymbol X_{21}, \ldots, \boldsymbol X_{2 m}$ vetores aleatórios $p \times 1$ referentes a uma população com $\mathbb{E}( \boldsymbol X_{2j} ) = \boldsymbol \mu_2$ para $j = 1, \ldots, m$.
+
+
+
+::: {style="height:800px; font-size:27px; margin-left: 5px; margin-right: 5px"}
+
+## Quantidades amostrais 
+
+|  | Média amostral | Matriz de covariâncias amostrais |
+| :--- | :--- | :--- |
+| População 1 | $\bar{\boldsymbol X}_1=\frac{1}{n} \sum_{j=1}^{n} \boldsymbol X_{1 j}$ | $\boldsymbol S_1=\frac{1}{n} \sum_{j=1}^{n}\left(\boldsymbol X_{1 j}-\bar{\boldsymbol X}_1\right)\left(\boldsymbol X_{1 j}-\bar{\boldsymbol X}_1\right)^{\top}$ |
+| População 2 | $\bar{\boldsymbol X}_2=\frac{1}{m} \sum_{j=1}^{m} \boldsymbol X_{2 j}$ | $\boldsymbol S_2=\frac{1}{m} \sum_{j=1}^{m}\left(\boldsymbol X_{2 j}-\bar{\boldsymbol X}_2\right)\left(\boldsymbol X_{2 j}-\bar{\boldsymbol X}_2\right)^{\top}$ |
+:::
+
+## Suposições adicionais
+
+(1) Ambas as populações têm distribuição normal multivariada
+(2) $\boldsymbol \Sigma_1=\boldsymbol \Sigma_2=\boldsymbol \Sigma$ 
+
+Deseja-se avaliar as hipóteses:
+$$
+\begin{aligned}
+& H_0: \mu_1=\mu_2 \times H_1: \mu_1 \neq \mu_2
+\end{aligned}
+$$
+
+::: {style="height:800px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+
+## Estimador para $\Sigma$
+
+Primeiramente, consideramos um estimador para $\boldsymbol \Sigma$, por exemplo
+
+$$
+S = S_{\text {pooled }} = \frac{\sum_{j=1}^{n} \left( \boldsymbol X_{1j} - \bar{\boldsymbol X_1} \right)\left( \boldsymbol X_{1j} - \bar{\boldsymbol X_1} \right)^{\top} +  \sum_{j=1}^{m} \left( \boldsymbol X_{2j} - \bar{\boldsymbol X_2} \right)\left( \boldsymbol X_{2j} - \bar{\boldsymbol X_2} \right)^{\top} }{n+m-2}
+$$
+
+ou seja
+$$
+S_{\text {pooled }}=\frac{\left(n-1\right) S_1+\left(m-1\right) S_2}{n+m-2}
+$$
+:::
+
+## hipóteses 
+
+Então, reescrevemos as hipóteses de interesse na forma mais geral
+$$
+\begin{aligned}
+& H_0: \boldsymbol \mu_1-\boldsymbol \mu_2=\boldsymbol\delta_0 \times H_1: \boldsymbol \mu_1-\boldsymbol \mu_2 \neq \boldsymbol\delta_0 .
+\end{aligned}
+$$
+em que $\boldsymbol\delta_0$ é o vetor de zeros.
+
+::: {style="height:500px; font-size:25px; margin-left: 5px; margin-right: 5px"}
+
+## Decisão
+
+Rejeitamos $H_0$ ao nível de significância $\alpha$ se
+
+$$
+T^2_{obs} = \left(  ( \bar{\boldsymbol X_1} - \bar{\boldsymbol X_2} ) - ( \boldsymbol \mu_1 - \boldsymbol \mu_2 )   \right)^{\top} \frac{S_{\text {pooled }}^{-1}}{n+m-2}\left(  ( \bar{\boldsymbol X_1} - \bar{\boldsymbol X_2} ) - ( \boldsymbol \mu_1 - \boldsymbol \mu_2 )   \right) > c^2
+$$
+em que:
+$$
+\begin{aligned}
+ c^2=\frac{\left(n+m-2\right) p}{n+m-p-1} q_{F_{p, n+m-p-1, \alpha}}
+\end{aligned}
+$$
+
+:::
+
+

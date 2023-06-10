@@ -1,0 +1,8 @@
+---
+title: "Exercícios - Teste T2 de Hotelling"
+author: "Pedro Almeida"
+format: html
+editor: visual
+---
+
+## 
